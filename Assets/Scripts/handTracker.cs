@@ -54,7 +54,7 @@ public partial class handTracker : Singleton<handTracker>
 
             if (args.state.sourcePose.TryGetPosition(out pos))
             {
-                Vector3 temppos = new Vector3(pos.x, pos.y+0.05f, pos.z + 0.15f);
+                Vector3 temppos = new Vector3(pos.x, pos.y, pos.z+0.05f);
           //      if (!TempMenu.activeSelf)
            //     {
                     TrackingObject.transform.position = Vector3.Lerp(TrackingObject.transform.position, temppos, 0.35f);
@@ -85,7 +85,7 @@ public partial class handTracker : Singleton<handTracker>
                 bool isRightHand = Camera.main.worldToCameraMatrix.MultiplyPoint(pos).x > 0;
                 handednessOffsetObj.transform.localPosition = isRightHand ? rightHandLocalPos : new Vector3(-rightHandLocalPos.x, rightHandLocalPos.y, rightHandLocalPos.z);
             }
-            Vector3 temppos = new Vector3(pos.x, pos.y+0.05f, pos.z + 0.15f);
+            Vector3 temppos = new Vector3(pos.x, pos.y, pos.z + 0.05f);
          //   if (!TempMenu.activeSelf)
           //  {
                 TrackingObject.SetActive(true);

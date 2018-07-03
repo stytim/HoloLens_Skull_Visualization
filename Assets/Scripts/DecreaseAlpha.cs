@@ -13,6 +13,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
     public class DecreaseAlpha : MonoBehaviour, IInputClickHandler
     {
         Renderer rend;
+        Renderer layerrend;
         public Material[] materiallist;
         // public GameObject[] bonelayers;
         public void OnInputClicked(InputClickedEventData eventData)
@@ -26,7 +27,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
             {
                 if (bone.activeSelf)
                 {
-                    if (rend.material.name == "Skull (Instance)")
+                    if (rend.material.name == "UIDarkSkull (Instance)")
                     {
                         rend.material = materiallist[0];
                     }               
@@ -39,9 +40,9 @@ namespace HoloToolkit.Unity.InputModule.Tests
                     Debug.Log(bonelayers.Length);
                     foreach (GameObject bones in bonelayers)
                     {
-                        Renderer layerrend;
+                        
                         layerrend = bones.GetComponent<Renderer>();
-                        if (layerrend.material.name == "Skull (Instance)")
+                        if (layerrend.material.name == "UIDarkSkull (Instance)")
                         {
                             layerrend.material = materiallist[0];
                         }

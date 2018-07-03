@@ -6,15 +6,16 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: WallPlane
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _BORDER_LIGHT_USES_HOVER_COLOR _DIRECTIONAL_LIGHT _DISABLE_ALBEDO_MAP
-    _EMISSION _SPECULAR_HIGHLIGHTS
+  m_Name: temp
+  m_Shader: {fileID: 4800000, guid: d45c0efca53019e43891b0f610f8146e, type: 3}
+  m_ShaderKeywords: _BORDER_LIGHT _BORDER_LIGHT_USES_HOVER_COLOR _DIRECTIONAL_LIGHT
+    _DISABLE_ALBEDO_MAP _EMISSION _HOVER_LIGHT _REFLECTIONS _SPECULAR_HIGHLIGHTS
   m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -47,10 +48,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -63,31 +60,27 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlbedoAlphaMode: 0
     - _BlendOp: 0
-    - _BorderLight: 0
+    - _BorderLight: 1
     - _BorderLightOpaque: 0
     - _BorderLightUsesHoverColor: 1
     - _BorderMinValue: 0.1
-    - _BorderWidth: 0.1
+    - _BorderWidth: 0.521
     - _BumpScale: 1
     - _ClippingPlane: 0
     - _ClippingPlaneBorder: 0
     - _ClippingPlaneBorderWidth: 0.025
     - _ColorWriteMask: 15
     - _CullMode: 2
-    - _CustomMode: 2
+    - _CustomMode: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DirectionalLight: 1
     - _DstBlend: 0
     - _EdgeSmoothingValue: 0.002
-    - _EnableEmission: 0
+    - _EnableEmission: 1
     - _EnableHoverColorOpaqueOverride: 0
     - _EnableHoverColorOverride: 0
     - _EnableNormalMap: 0
@@ -99,20 +92,15 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HoverLight: 0
+    - _HoverLight: 1
     - _HoverLightOpaque: 0
     - _InnerGlow: 0
     - _Metallic: 0
     - _Mode: 0
     - _NearPlaneFade: 0
-    - _NoiseGain: 1
-    - _NoiseScale: 0.15
     - _OcclusionStrength: 1
-    - _Opacity: 1
     - _Parallax: 0.02
-    - _PulseAmp: 0.1
-    - _PulseRate: 4
-    - _Reflections: 0
+    - _Reflections: 1
     - _Refraction: 0
     - _RefractiveIndex: 0
     - _RenderQueueOverride: -1
@@ -126,24 +114,18 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WireThickness: 8
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0, g: 0, b: 0, a: 0}
     - _ClipPlane: {r: 0, g: 1, b: 0, a: 0}
     - _ClippingPlaneBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
-    - _Color: {r: 0.678, g: 0, b: 1, a: 0.5019608}
-    - _EmissionColor: {r: 0.339, g: 0, b: 0.5, a: 1}
-    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 255, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 255, g: 0, b: 0, a: 1}
     - _EnvironmentColorX: {r: 1, g: 0, b: 0, a: 1}
     - _EnvironmentColorY: {r: 0, g: 1, b: 0, a: 1}
     - _EnvironmentColorZ: {r: 0, g: 0, b: 1, a: 1}
     - _HoverColorOpaqueOverride: {r: 1, g: 1, b: 1, a: 1}
     - _HoverColorOverride: {r: 1, g: 1, b: 1, a: 1}
     - _InnerGlowColor: {r: 1, g: 1, b: 1, a: 0.75}
-    - _NoiseColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-    - _WireColor: {r: 0.678, g: 0, b: 1, a: 1}

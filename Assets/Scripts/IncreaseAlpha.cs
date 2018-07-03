@@ -26,7 +26,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
 
                 if (bone.activeSelf)
                 {
-                    if (rend.material.name == "Skull (Instance)")
+                    if (rend.material.name == "UIDarkSkull (Instance)")
                     {
                         rend.material = materiallist[1];
                     }

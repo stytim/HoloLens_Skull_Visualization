@@ -24,9 +24,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #region UNTIY_MONOBEHAVIOUR_METHODS
     public Text starttext;
     GameObject startuptext;
+    GameObject Ins;
     protected virtual void Start()
     { 
         startuptext = GameObject.Find("StartUp");
+        Ins = GameObject.Find("Instruction");
+        Ins.SetActive(false);
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
@@ -50,6 +53,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         {
          //   Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
             startuptext.SetActive(false);
+            Ins.SetActive(true);
             OnTrackingFound();
         }
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
