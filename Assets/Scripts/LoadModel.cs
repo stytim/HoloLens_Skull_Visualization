@@ -24,6 +24,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
                 Quaternion temprot = new Quaternion();
                 temprot.SetLookRotation(bone.transform.position, Vector3.back);
                 bone.transform.rotation = temprot;
+                bone.transform.eulerAngles = new Vector3(bone.transform.eulerAngles.x - 90, bone.transform.eulerAngles.y, bone.transform.eulerAngles.z);
             }
             eventData.Use(); // Mark the event as used, so it doesn't fall through to other handlers.
         }

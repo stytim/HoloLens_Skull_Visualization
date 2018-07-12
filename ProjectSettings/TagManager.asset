@@ -6,6 +6,7 @@ TagManager:
   tags:
   - bone
   - skull
+  - Scan
   layers:
   - Default
   - TransparentFX
