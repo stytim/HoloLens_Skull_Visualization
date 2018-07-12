@@ -38,15 +38,19 @@ namespace HoloToolkit.Unity.InputModule.Tests
                          Renderer bonerend = bone.GetComponent<Renderer>();
                          bonerend.material = bones.GetComponent<Renderer>().material;
                         
-                        bone.SetActive(true);
-                        skull.SetActive(false);
-                        break;
+                        bone.GetComponent<MeshRenderer>().enabled =true;
+                        foreach (GameObject boness in bonelayers)
+                        {
+                            boness.GetComponent<MeshRenderer>().enabled = false;
+                        }
+                            //skull.SetActive(false);
+                            break;
                     }
                     else
                     {
-                        if (!bones.activeSelf)
+                        if (!bones.GetComponent<MeshRenderer>().enabled)
                         {
-                            bones.SetActive(true);
+                            bones.GetComponent<MeshRenderer>().enabled = true;
                             break;
                         }
                     }

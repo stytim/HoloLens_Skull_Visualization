@@ -19,8 +19,13 @@ namespace HoloToolkit.Unity.InputModule.Tests
         {
             bone = GameObject.Find("bone");
             skull = GameObject.Find("skull");
-            bone.SetActive(true);
-            skull.SetActive(false);
+            bone.GetComponent<MeshRenderer>().enabled = true;
+            foreach (GameObject bones in bonelayers)
+            {     
+                    bones.GetComponent<MeshRenderer>().enabled = false;    
+            }
+            //  bone.SetActive(true);
+            // skull.SetActive(false);
         }
         public void OnInputClicked(InputClickedEventData eventData)
         {
@@ -28,31 +33,32 @@ namespace HoloToolkit.Unity.InputModule.Tests
             if (this.gameObject.name == "LayerMinus")
             {
                 // GameObject bone = GameObject.Find("bone");
-                if (bone.activeSelf)
+                if (bone.GetComponent<MeshRenderer>().enabled)
                 {
-                bone.SetActive(false);
+                    bone.GetComponent<MeshRenderer>().enabled = false;
                 // GameObject skull = GameObject.Find("skull");
                 UnityEngine.Transform trans= bone.transform;
 
-                skull.SetActive(true);
+               // skull.SetActive(true);
                 skull.transform.localPosition = trans.localPosition;
                 skull.transform.localRotation = trans.localRotation;
                 skull.transform.localScale = trans.localScale;
                 foreach (GameObject bones in bonelayers)
                 {
-                    Renderer bonerend = bone.GetComponent<Renderer>();
-                    bonerend.material = bone.GetComponent<Renderer>().material;
+                        bones.GetComponent<MeshRenderer>().enabled = true;
+                        Renderer bonerend = bone.GetComponent<Renderer>();
+                         bonerend.material = bone.GetComponent<Renderer>().material;
                 }
-                bonelayers[0].SetActive(false);
+                bonelayers[0].GetComponent<MeshRenderer>().enabled = false;
 
                 }
                 else
                 {
                     foreach (GameObject bones in bonelayers)
                     {
-                        if (bones.activeSelf)
-                        {                                         
-                            bones.SetActive(false);
+                        if (bones.GetComponent<MeshRenderer>().enabled)
+                        {
+                            bones.GetComponent<MeshRenderer>().enabled = false;
                             break;
                         }
                     }           
