@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour {
     GameObject bone;
-    GameObject skull;
-    GameObject[] bonelayers;
+    GameObject plane;
+   // GameObject skull;
+   //GameObject[] bonelayers;
     public Material[] materiallist;
     // Use this for initialization
     void Start () {
         bone = GameObject.Find("bone");
-        skull = GameObject.Find("skull");
-        bonelayers = GameObject.FindGameObjectsWithTag("skull");
+        plane = GameObject.Find("X-plane");
+      //  skull = GameObject.Find("skull");
+      //  bonelayers = GameObject.FindGameObjectsWithTag("skull");
     }
 	
     public void Loadmodel()
@@ -20,10 +22,6 @@ public class ButtonController : MonoBehaviour {
         Vector3 gazepos = Camera.main.transform.forward;
         bone.transform.position = headpos + gazepos * 0.8f;
         bone.GetComponent<MeshRenderer>().enabled = true;
-        foreach (GameObject bones in bonelayers)
-        {
-            bone.GetComponent<MeshRenderer>().enabled = false;
-        }
         Quaternion temprot = new Quaternion();
         temprot.SetLookRotation(bone.transform.position, Vector3.back);
         bone.transform.rotation = temprot;
