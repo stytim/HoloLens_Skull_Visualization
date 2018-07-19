@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour {
     GameObject bone;
     GameObject plane;
-   // GameObject skull;
-   //GameObject[] bonelayers;
-    public Material[] materiallist;
+    GameObject Menu;
+    public Text Menutext;
+  
     // Use this for initialization
     void Start () {
         bone = GameObject.Find("bone");
         plane = GameObject.Find("X-plane");
-      //  skull = GameObject.Find("skull");
-      //  bonelayers = GameObject.FindGameObjectsWithTag("skull");
+        Menu = GameObject.Find("Menu");
     }
 	
     public void Loadmodel()
@@ -21,7 +21,6 @@ public class ButtonController : MonoBehaviour {
         Vector3 headpos = Camera.main.transform.position;
         Vector3 gazepos = Camera.main.transform.forward;
         bone.transform.position = headpos + gazepos * 0.8f;
-        bone.GetComponent<MeshRenderer>().enabled = true;
         Quaternion temprot = new Quaternion();
         temprot.SetLookRotation(bone.transform.position, Vector3.back);
         bone.transform.rotation = temprot;
@@ -31,34 +30,27 @@ public class ButtonController : MonoBehaviour {
     public void Sizeplus()
     {
         bone.transform.localScale += 0.03f * bone.transform.localScale;
+        plane.transform.localScale += 0.03f * plane.transform.localScale;
     }
     public void Sizeminus()
     {
         bone.transform.localScale -= 0.03f * bone.transform.localScale;
+        plane.transform.localScale -= 0.03f * plane.transform.localScale;
     }
-    public void Alphaplus()
+    public void FixMenu()
     {
 
+        if (Menu.GetComponent<handTracker>().allowTrack)
+        {
+            Menu.GetComponent<handTracker>().allowTrack = false;
+            Menutext.text = "Move Menu";
+        }
+        else
+        {
+            Menu.GetComponent<handTracker>().allowTrack = true;
+            Menutext.text = "Fix Menu";
+        }
     }
-    public void Alphaminus()
-    {
-
-    }
-    public void AlphaMax()
-    {
-
-    }
-    public void AlphaMin()
-    {
-
-    }
-    public void LayerPlus()
-    {
-
-    }
-    public void LayerMinus()
-    {
-
-    }
+    
    
 }
