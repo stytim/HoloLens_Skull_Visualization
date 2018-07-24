@@ -21,10 +21,15 @@ public class ButtonController : MonoBehaviour {
         Vector3 headpos = Camera.main.transform.position;
         Vector3 gazepos = Camera.main.transform.forward;
         bone.transform.position = headpos + gazepos * 0.8f;
+        plane.transform.position = headpos + gazepos * 0.8f;
         Quaternion temprot = new Quaternion();
+        Quaternion planerot = new Quaternion();
+        planerot.SetLookRotation(plane.transform.position, Vector3.left);
         temprot.SetLookRotation(bone.transform.position, Vector3.back);
         bone.transform.rotation = temprot;
+        plane.transform.rotation = planerot;
         bone.transform.eulerAngles = new Vector3(bone.transform.eulerAngles.x - 90, bone.transform.eulerAngles.y, bone.transform.eulerAngles.z);
+        plane.transform.eulerAngles = new Vector3(plane.transform.eulerAngles.x + 90, plane.transform.eulerAngles.y, plane.transform.eulerAngles.z);
     }
 
     public void Sizeplus()
