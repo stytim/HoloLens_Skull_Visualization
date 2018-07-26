@@ -7,11 +7,13 @@ public class ButtonController : MonoBehaviour {
     GameObject bone;
     GameObject plane;
     GameObject Menu;
+    GameObject part;
     public Text Menutext;
   
     // Use this for initialization
     void Start () {
         bone = GameObject.Find("bone");
+        part = GameObject.Find("part");
         plane = GameObject.Find("X-plane");
         Menu = GameObject.Find("Menu");
     }
@@ -57,5 +59,16 @@ public class ButtonController : MonoBehaviour {
         }
     }
     
+    public void Highlight()
+    {
+        if (part.activeSelf)
+        {
+            part.SetActive(false);
+        }
+        else
+        {
+            part.SetActive(true);
+        }
+    }
    
 }
