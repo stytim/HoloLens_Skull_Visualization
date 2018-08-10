@@ -9,6 +9,8 @@ public class ButtonController : MonoBehaviour {
     GameObject Menu;
     GameObject part;
     public Text Menutext;
+    public Material[] materallist;
+    Renderer rend;
   
     // Use this for initialization
     void Start () {
@@ -16,6 +18,7 @@ public class ButtonController : MonoBehaviour {
         part = GameObject.Find("part");
         plane = GameObject.Find("X-plane");
         Menu = GameObject.Find("Menu");
+        
     }
 	
     public void Loadmodel()
@@ -58,7 +61,27 @@ public class ButtonController : MonoBehaviour {
             Menutext.text = "Fix Menu";
         }
     }
-    
+    public void Transparent()
+    {
+        rend = bone.GetComponent<Renderer>();
+        Debug.Log(rend.material.name);
+       // if (rend.material.name == "Transparent (Instance)") 
+      //  {
+      //      rend.material = materallist[1];
+      //      Menutext.text = "Transparent!";
+      //  }
+        if (rend.material.name == "Opaque (Instance)")
+        {
+            rend.material = materallist[0];
+            Menutext.text = "Opaque!";
+        }
+        else
+        {
+            rend.material = materallist[1];
+            Menutext.text = "Transparent!";
+        }
+        
+    }
     public void Highlight()
     {
         if (part.activeSelf)

@@ -1,6 +1,6 @@
 ﻿// clips any pixel on the wrong side of a plane
 
-Shader "Clip/Plane" {
+Shader "Clip/Plane_Ori" {
     Properties {
     
       _PlanePoint ("Plane Point (World Space)", Vector) = (0,0,0,0)
@@ -23,7 +23,7 @@ Shader "Clip/Plane" {
       Cull Off
       CGPROGRAM
       // Physically based Standard lighting model, and enable shadows on all light types
-	  #pragma surface surf Standard fullforwardshadows alpha
+	  #pragma surface surf Standard fullforwardshadows
       //#pragma surface surf Lambert alpha
 	  // Use shader model 3.0 target, to get nicer looking lighting
 	  #pragma target 3.0
@@ -78,8 +78,8 @@ Shader "Clip/Plane" {
           o.Normal = UnpackNormal (tex2D (_BumpMap, IN.uv_BumpMap));
           o.Metallic = _Metallic;
 		  o.Smoothness = _Glossiness;
-		 // o.Alpha = albedo.a + convert.a;
-		  o.Alpha = 0.0f;
+		  o.Alpha = albedo.a + convert.a;
+		 // o.Alpha = 0.0f;
           
       }
       ENDCG

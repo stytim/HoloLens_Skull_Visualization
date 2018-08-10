@@ -1,9 +1,0 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <UnityWSASolutionName>Phacon</UnityWSASolutionName>
-        <UnityWSASolutionDir>D:\Research_2018\HoloLensSkullVisualization\AppTest\</UnityWSASolutionDir>
-        <UnityProjectDir>D:\Research_2018\HoloLensSkullVisualization\</UnityProjectDir>
-        <UnityWSAPlayerDir>C:\Program Files\Unity\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
-        <UnityWSAToolsDir>$(UnityWSASolutionDir)Unity\Tools\</UnityWSAToolsDir>
-    </PropertyGroup>
-</Project>

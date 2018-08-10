@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/phacon.unity
     guid: f586444ebf62995488b03616b602c46c
+  - enabled: 1
+    path: Assets/Phacon_noMarker.unity
+    guid: 0aee528a87407b34084cc26689f530ac
